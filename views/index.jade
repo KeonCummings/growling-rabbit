@@ -4,15 +4,28 @@ html
     meta(charset='utf-8')
     title The Growling Rabbit
     link(rel='stylesheet', href="zurb/css/foundation.css")
+    link(rel='stylesheet', href="stylesheets/style.css")
+    link(rel='stylesheet', href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='/zurb/js/foundation.min.js')
-  div(class='icon-bar five-up')
-    a.item
-      //- img(src= "http://" + row.Image)
-      label home
   body
-    p
-      | Test text
-      | More test takes with pipes as line breaks
+    section(class="hero")
+      div.row
+        div(class='icon-bar five-up')
+          a.item
+            i(class="fa fa-home")
+              label Home
+          a.item
+            i(class="fa fa-cutlery")
+              label Menu
+        //- div(class="large-12-columns")
+          //- div(class="background-image")
+      //- div(class="large-4-columns")
+      //-   p
+      //-     | Test text
+      //- div(class="large-4-columns")
+
+    
   //-   include ./includes/ribbon.jade
   //-   #container
   //-     include ./includes/header.jade
