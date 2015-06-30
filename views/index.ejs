@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Specializing in comfort including hearty brunch, sweet treats, and refreshing drinks! ">
+    <meta name="author" content="The Growling Rabbit">
     <title>The Growling Rabbit</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -10,10 +15,7 @@
    <body ng-app="growlingRabbit">
       <div class="brand">The Growling Rabbit</div>
       <div class="address-bar" align="center"> 6981 N Sheridan Rd | Chicago, IL 60626 | 773.654.1444 <br><br>
-      <!-- Go to www.addthis.com/dashboard to generate a new set of sharing buttons -->
-      <a href="https://api.addthis.com/oexchange/0.8/forward/facebook/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-546f714f3c219ec8&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/facebook.png" border="0" alt="Facebook"/></a>
-      <a href="https://api.addthis.com/oexchange/0.8/forward/twitter/offer?url=http%3A%2F%2Fwww.addthis.com&pubid=ra-546f714f3c219ec8&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/twitter.png" border="0" alt="Twitter"/></a>
-      <a href="https://www.addthis.com/bookmark.php?source=tbx32nj-1.0&v=300&url=http%3A%2F%2Fwww.addthis.com&pubid=ra-546f714f3c219ec8&ct=1&title=AddThis%20-%20Get%20likes%2C%20get%20shares%2C%20get%20followers&pco=tbxnj-1.0" target="_blank"><img src="https://cache.addthiscdn.com/icons/v2/thumbs/32x32/addthis.png" border="0" alt="Addthis"/></a>
+      <div class="fb-like" data-href="https://www.facebook.com/pages/The-Growling-Rabbit-a-cafe/190086097702427" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
       </div>
       <!-- Navigation -->
       <nav class="navbar navbar-default" role="navigation">
@@ -178,5 +180,13 @@
           interval: 5000 //changes the speed
       })
       </script>
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=399575120226034";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>
