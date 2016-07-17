@@ -18,6 +18,11 @@ function($stateProvider, $urlRouterProvider) {
        .state('contact', {
        url: '/contact',
        templateUrl: '/contact.html'
+     })
+
+      .state('admin', {
+       url: '/admin',
+       templateUrl: '/admin.html'
      });
 
   $urlRouterProvider.otherwise('home');
