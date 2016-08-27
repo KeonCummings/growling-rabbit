@@ -16,6 +16,18 @@ var User   = require('./models/user'); // get our mongoose model
 
 var app = express();
 var appAuth = express.Router()
+var fs = require('fs');
+
+
+// var dir = './uploads'; // your directory
+
+// var files = fs.readdirSync(dir);
+// files.sort(function(a, b) {
+//                return fs.statSync(dir + a).mtime.getTime() - 
+//                       fs.statSync(dir + b).mtime.getTime();
+//            });
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,7 +62,42 @@ appAuth.get('/setup', function(req, res) {
   });
 });
 
+
+appAuth.use(function(req, res, next) {
+
+
+  // check header or url parameters or post parameters for token
+  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+  // decode token
+  if (token) {
+
+    // verifies secret and checks exp
+    jwt.verify(token, app.get('superSecret'), function(err, decoded) {      
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });    
+      } else {
+        // if everything is good, save to request for use in other routes
+        req.decoded = decoded;    
+        next();
+      }
+    });
+
+  } else {
+
+    // if there is no token
+    // return an error
+    return res.status(403).send({ 
+        success: false, 
+        message: 'No token provided.' 
+    });
+    
+  }
+});
+
 appAuth.post('/authenticate', function(req, res) {
+  //This post request finda random user and checks wheter or not the user is in the database
+  //If the user is in the database then access is granted, if not access is not granted
 
   // find the user
   User.findOne({
@@ -87,36 +134,10 @@ appAuth.post('/authenticate', function(req, res) {
   });
 });
 
-appAuth.use(function(req, res, next) {
 
-  // check header or url parameters or post parameters for token
-  var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
-  // decode token
-  if (token) {
-
-    // verifies secret and checks exp
-    jwt.verify(token, app.get('superSecret'), function(err, decoded) {      
-      if (err) {
-        return res.json({ success: false, message: 'Failed to authenticate token.' });    
-      } else {
-        // if everything is good, save to request for use in other routes
-        req.decoded = decoded;    
-        next();
-      }
-    });
-
-  } else {
-
-    // if there is no token
-    // return an error
-    return res.status(403).send({ 
-        success: false, 
-        message: 'No token provided.' 
-    });
-    
-  }
-});
+appAuth.get('/admin', function(req, res){
+  res.json({ success: true, message: 'we are here' })
+})
 
 
 var storage =   multer.diskStorage({
@@ -124,7 +145,7 @@ var storage =   multer.diskStorage({
     callback(null, './uploads');
   },
   filename: function (req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now());
+    callback(null, file.fieldname + '-' + Date.now() + ".png");
   }
 });
 var upload = multer({ storage : storage}).single('userPhoto');
@@ -159,6 +180,7 @@ app.put('/:id', function(req, res, next) {
 });
 
 app.use('/auth', appAuth);
+
 
 
 // catch 404 and forward to error handler

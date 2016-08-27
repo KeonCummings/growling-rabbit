@@ -236,19 +236,78 @@
         </div>
       </script>
       <script type="text/ng-template" id="/admin.html"> 
-          <!-- Form to upload an image to the server -->
-          <form id        =  "uploadForm"
-             enctype   =  "multipart/form-data"
-             action    =  "/api/photo"
-             method    =  "post"
-        >
 
-        <input type="file" name="userPhoto" />
-        <input type="submit" value="Upload Image" name="submit">
-        </form>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Admin</h1>
+                        <div class="col-lg-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <i class="fa fa-bell fa-fw"></i> Edit Home Page Image
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="list-group">
+                                      <img class="img-responsive img-full" src="img/plate.jpg" alt="">
+                                  </div>
+                                  <!-- /.list-group -->
+                                  <form id        =  "uploadForm"
+                                   enctype   =  "multipart/form-data"
+                                   action    =  "/api/photo"
+                                   method    =  "post" >
+                                     <input type="file" name="userPhoto" />
+                                     <input type="submit" value="Upload Image" name="submit">
+                                  </form>
+                              <!--     <a href="#" class="btn btn-default btn-block">View All Alerts</a> -->
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                        </div>
+                      <div class="col-lg-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <i class="fa fa-bell fa-fw"></i> Edit Home Page Description
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="list-group">
+                                          <div class="form-group">
+                                            <label>Text area</label>
+<!--                                              <input type="text" id="homePage Edit"
+                                                     enctype   =  "application/x-www-form-urlencoded"
+                                                     action    =  "/api/text"
+                                                     method    =  "post" name="homePage"> -->
+                                             <textarea class="form-control" rows="3">The Growling Rabbit is a neighborhood café committed to using locally sourced ingredients from local farmers to create healthy comfort food. Located in Chicago’s Rogers Park neighborhood, we try to support the “farm to table” philosophy whenever possible and when something delicious is in season, we strive to incorporate it into our wares to allow you, the patrons, to experience the season’s bounty in a unique way.</textarea>
+                                              <input type="submit" value="Edit Home Page" name="submit">
+                                            <!-- <textarea class="form-control" rows="3" height="100%" name="homePage"></textarea> -->
+                                        </div>
+                                  </div>
+                                  <!-- /.list-group -->
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                        </div>
+
+  
+                   
+
+                        <!-- Form to upload an image to the server -->
+                        
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+          
 
         <!-- Form to add text to the home page -->
-        <form id        =  "homePage Edit"
+      <!--   <form id        =  "homePage Edit"
              enctype   =  "application/x-www-form-urlencoded"
              action    =  "/api/text"
              method    =  "post"
@@ -256,8 +315,108 @@
 
         <input type="text" value = "this or that" name="homePage" />
         <input type="submit" value="Edit Home Page" name="submit">
-        </form>
+        </form> -->
       </script>
+       <script type="text/ng-template" id="/gallery.html"> 
+       <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Brunch Gallery</h1>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+        </div>
+        </script>
+        <script type="text/ng-template" id="/login.html"> 
+                <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </script>
       <footer>
           <div class="container">
               <div class="row">
