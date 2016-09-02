@@ -13,7 +13,8 @@ var db = mongoose.connection;
 mongoose.connect('mongodb://localhost/growlingRabbit');
 var Page = require('./models/growling_rabbit_page_text.js');
 var User   = require('./models/user'); // get our mongoose model
-
+passport = require('passport');
+LocalStrategy = require('passport-local');
 var app = express();
 var appAuth = express.Router()
 var fs = require('fs');
@@ -94,6 +95,88 @@ appAuth.use(function(req, res, next) {
     
   }
 });
+
+
+app.post('/login',
+  passport.use(new LocalStrategy(
+    {passReqToCallback : true}, //allows us to pass back the request to the callback
+      module.exports = function(username, password, done) {
+             // find the user
+          User.findOne({
+            name: req.body.name
+          }, function(err, user) {
+
+            if (err) throw err;
+
+            if (!user) {
+              res.json({ success: false, message: 'Authentication failed. User not found.' });
+            } else if (user) {
+
+              // check if password matches
+              if (user.password != req.body.password) {
+                res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+              } else {
+
+                // if user is found and password is right
+                // create a token
+                var token = jwt.sign(user, app.get('superSecret'), {
+                  expiresIn: 1440 // expires in 24 hours
+                });
+
+                // return the information including token as JSON
+                res.json({
+                  success: true,
+                  message: 'Enjoy your token!',
+                  token: token
+                });
+              }   
+
+            }
+
+      });
+    }
+)));
+
+// app.post('/login',
+//   passport.authenticate('local'),
+//     function(req, res) {
+//       // find the user
+//       User.findOne({
+//         name: req.body.name
+//       }, function(err, user) {
+
+//         if (err) throw err;
+
+//         if (!user) {
+//           res.json({ success: false, message: 'Authentication failed. User not found.' });
+//         } else if (user) {
+
+//           // check if password matches
+//           if (user.password != req.body.password) {
+//             res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+//           } else {
+
+//             // if user is found and password is right
+//             // create a token
+//             var token = jwt.sign(user, app.get('superSecret'), {
+//               expiresIn: 1440 // expires in 24 hours
+//             });
+
+//             // return the information including token as JSON
+//             res.json({
+//               success: true,
+//               message: 'Enjoy your token!',
+//               token: token
+//             });
+//           }   
+
+//         }
+
+//   });
+//       // If this function gets called, authentication was successful.
+//       // `req.user` contains the authenticated user.
+//       res.redirect('/');
+//   });
 
 appAuth.post('/authenticate', function(req, res) {
   //This post request finda random user and checks wheter or not the user is in the database
