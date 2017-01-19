@@ -6,18 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer  =   require('multer');        
 var routes = require('./routes/index');
-var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
-var config = require('./config'); 
-var mongoose = require('mongoose');
-var db = mongoose.connection;
-mongoose.connect('mongodb://localhost/growlingRabbit');
-var Page = require('./models/growling_rabbit_page_text.js');
-var User   = require('./models/user'); // get our mongoose model
-passport = require('passport');
-LocalStrategy = require('passport-local');
+// var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+// var config = require('./config'); 
+// var mongoose = require('mongoose');
+// var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/growlingRabbit');
+// var Page = require('./models/growling_rabbit_page_text.js');
+// var User   = require('./models/user'); // get our mongoose model
+// passport = require('passport');
+// LocalStrategy = require('passport-local');
 var app = express();
 var appAuth = express.Router()
-var fs = require('fs');
+// var fs = require('fs');
 
 
 // var dir = './uploads'; // your directory
@@ -33,7 +33,7 @@ var fs = require('fs');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('superSecret', config.secret);
+// app.set('superSecret', config.secret);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -97,45 +97,45 @@ appAuth.use(function(req, res, next) {
 });
 
 
-app.post('/login',
-  passport.use(new LocalStrategy(
-    {passReqToCallback : true}, //allows us to pass back the request to the callback
-      module.exports = function(username, password, done) {
-             // find the user
-          User.findOne({
-            name: req.body.name
-          }, function(err, user) {
+// app.post('/login',
+//   passport.use(new LocalStrategy(
+//     {passReqToCallback : true}, //allows us to pass back the request to the callback
+//       module.exports = function(username, password, done) {
+//              // find the user
+//           User.findOne({
+//             name: req.body.name
+//           }, function(err, user) {
 
-            if (err) throw err;
+//             if (err) throw err;
 
-            if (!user) {
-              res.json({ success: false, message: 'Authentication failed. User not found.' });
-            } else if (user) {
+//             if (!user) {
+//               res.json({ success: false, message: 'Authentication failed. User not found.' });
+//             } else if (user) {
 
-              // check if password matches
-              if (user.password != req.body.password) {
-                res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-              } else {
+//               // check if password matches
+//               if (user.password != req.body.password) {
+//                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+//               } else {
 
-                // if user is found and password is right
-                // create a token
-                var token = jwt.sign(user, app.get('superSecret'), {
-                  expiresIn: 1440 // expires in 24 hours
-                });
+//                 // if user is found and password is right
+//                 // create a token
+//                 var token = jwt.sign(user, app.get('superSecret'), {
+//                   expiresIn: 1440 // expires in 24 hours
+//                 });
 
-                // return the information including token as JSON
-                res.json({
-                  success: true,
-                  message: 'Enjoy your token!',
-                  token: token
-                });
-              }   
+//                 // return the information including token as JSON
+//                 res.json({
+//                   success: true,
+//                   message: 'Enjoy your token!',
+//                   token: token
+//                 });
+//               }   
 
-            }
+//             }
 
-      });
-    }
-)));
+//       });
+//     }
+// )));
 
 // app.post('/login',
 //   passport.authenticate('local'),
@@ -178,89 +178,89 @@ app.post('/login',
 //       res.redirect('/');
 //   });
 
-appAuth.post('/authenticate', function(req, res) {
-  //This post request finda random user and checks wheter or not the user is in the database
-  //If the user is in the database then access is granted, if not access is not granted
+// appAuth.post('/authenticate', function(req, res) {
+//   //This post request finda random user and checks wheter or not the user is in the database
+//   //If the user is in the database then access is granted, if not access is not granted
 
-  // find the user
-  User.findOne({
-    name: req.body.name
-  }, function(err, user) {
+//   // find the user
+//   User.findOne({
+//     name: req.body.name
+//   }, function(err, user) {
 
-    if (err) throw err;
+//     if (err) throw err;
 
-    if (!user) {
-      res.json({ success: false, message: 'Authentication failed. User not found.' });
-    } else if (user) {
+//     if (!user) {
+//       res.json({ success: false, message: 'Authentication failed. User not found.' });
+//     } else if (user) {
 
-      // check if password matches
-      if (user.password != req.body.password) {
-        res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-      } else {
+//       // check if password matches
+//       if (user.password != req.body.password) {
+//         res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+//       } else {
 
-        // if user is found and password is right
-        // create a token
-        var token = jwt.sign(user, app.get('superSecret'), {
-          expiresIn: 1440 // expires in 24 hours
-        });
+//         // if user is found and password is right
+//         // create a token
+//         var token = jwt.sign(user, app.get('superSecret'), {
+//           expiresIn: 1440 // expires in 24 hours
+//         });
 
-        // return the information including token as JSON
-        res.json({
-          success: true,
-          message: 'Enjoy your token!',
-          token: token
-        });
-      }   
+//         // return the information including token as JSON
+//         res.json({
+//           success: true,
+//           message: 'Enjoy your token!',
+//           token: token
+//         });
+//       }   
 
-    }
+//     }
 
-  });
-});
-
-
-appAuth.get('/admin', function(req, res){
-  res.json({ success: true, message: 'we are here' })
-})
+//   });
+// });
 
 
-var storage =   multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, './uploads');
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now() + ".png");
-  }
-});
-var upload = multer({ storage : storage}).single('userPhoto');
+// appAuth.get('/admin', function(req, res){
+//   res.json({ success: true, message: 'we are here' })
+// })
 
-app.post('/api/photo',function(req,res){
-    upload(req,res,function(err) {
-        if(err) {
-            return res.end("Error uploading file.");
-        }
-        res.end("File is uploaded");
-    });
-});
 
-app.post('/api/text',function(req,res){
-    var text = new Page();     
-        text.homePage = req.body.homePage;  
+// var storage =   multer.diskStorage({
+//   destination: function (req, file, callback) {
+//     callback(null, './uploads');
+//   },
+//   filename: function (req, file, callback) {
+//     callback(null, file.fieldname + '-' + Date.now() + ".png");
+//   }
+// });
+// var upload = multer({ storage : storage}).single('userPhoto');
 
-        text.save(function(err) {
-            if (err)
-                res.send(err);
+// app.post('/api/photo',function(req,res){
+//     upload(req,res,function(err) {
+//         if(err) {
+//             return res.end("Error uploading file.");
+//         }
+//         res.end("File is uploaded");
+//     });
+// });
 
-            res.json({ message: 'Text Added!' });
-        });
+// app.post('/api/text',function(req,res){
+//     var text = new Page();     
+//         text.homePage = req.body.homePage;  
+
+//         text.save(function(err) {
+//             if (err)
+//                 res.send(err);
+
+//             res.json({ message: 'Text Added!' });
+//         });
         
-});
+// });
 
-app.put('/:id', function(req, res, next) {
-  Page.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, page) {
-    if (err) return next(err);
-    res.json(page);
-  });
-});
+// app.put('/:id', function(req, res, next) {
+//   Page.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, page) {
+//     if (err) return next(err);
+//     res.json(page);
+//   });
+// });
 
 app.use('/auth', appAuth);
 
