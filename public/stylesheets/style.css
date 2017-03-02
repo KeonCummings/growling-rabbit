@@ -47,6 +47,13 @@ hr {
     letter-spacing: 2px;
 }
 
+.page-header {
+    color: #fff;
+}
+.form-control {
+  height: 100%;
+}
+
 .navbar-nav {
     text-transform: uppercase;
     font-weight: 400;

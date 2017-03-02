@@ -12,8 +12,10 @@
     "ejs": "~2.3.1",
     "express": "~4.12.4",
     "jade": "^1.11.0",
-    "mongoose": "^4.0.6",
+    "jsonwebtoken": "^7.1.6",
+    "mongoose": "^4.5.3",
     "morgan": "~1.5.3",
+    "multer": "1.1.0",
     "serve-favicon": "~2.2.1"
   }
 }

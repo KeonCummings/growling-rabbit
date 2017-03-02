@@ -34,12 +34,18 @@
       <div class="address-bar" align="center"> 5938 N. Broadway | Chicago, IL 60660 | 773.654.1444 <br><br>
       <div class="fb-like" data-href="https://www.facebook.com/pages/The-Growling-Rabbit-a-cafe/190086097702427" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
       <br><br>
+<<<<<<< HEAD
       <h2> Monday: Closed </h2>
       <h2> Tuesday - Sunday: 8am - 10pm </h2>
       <div class= "address-bar"> 8am - 10pm </div>
       <div class="address-bar" align="center"> Brunch: 8am - 3pm | Cookie & Coffee Hour: 3pm -4pm | Supper: 4pm -10pm <br><br>
 
       </div>
+=======
+     <!--  <h2> New Brunch Hours </h2>
+      <div class= "address-bar"> 8am - 3:30pm </div>
+      </div> -->
+>>>>>>> d83e37d602d5c2373cc4ad1a474ed55826621d65
       <!-- Navigation -->
       <nav class="navbar navbar-default" role="navigation">
           <div class="container">
@@ -55,7 +61,11 @@
                   <a class="navbar-brand" href="/#/home">The Growling Rabbit</a>
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
+<<<<<<< HEAD
          <!--      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+=======
+              <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+>>>>>>> d83e37d602d5c2373cc4ad1a474ed55826621d65
                   <ul class="nav navbar-nav">
                       <li>
                           <a href="/#/home">Home</a>
@@ -75,6 +85,7 @@
       <ui-view></ui-view>
       <script type="text/ng-template" id="/home.html">  
       <div class="container">
+<<<<<<< HEAD
           <div class="row">
               <div class="box">
                   <div class="col-lg-12 text-center">
@@ -119,6 +130,9 @@
               </div>
           </div>
 
+=======
+        
+>>>>>>> d83e37d602d5c2373cc4ad1a474ed55826621d65
           <div class="row">
               <div class="box">
                   <div class="col-lg-12">
@@ -129,6 +143,7 @@
                       <img class="img-responsive img-border img-left" src="img/logo.jpg" alt="">
                       <hr class="visible-xs">
                       <p>
+<<<<<<< HEAD
                           The wait is over The Growling Rabbit is open at 5938 N. Broadway Chicago, IL 60660 in Chicgao's Edgewater neighborhood. 
                       </p>
                  <!--      <p>
@@ -184,6 +199,11 @@
                       </p> -->
 
 
+=======
+                          Thanks to all for your continued support of The Growling Rabbit. We will be up and running in our new home at 5938 N Broadway soon. 
+
+                      </p>
+>>>>>>> d83e37d602d5c2373cc4ad1a474ed55826621d65
                       
                   </div>
               </div>
@@ -220,7 +240,11 @@
                         <strong>773.654.1444</strong>
                     </p>
                     <p>Email:
+<<<<<<< HEAD
                         <strong><a href="mailto:Laura@growlingrabbit.com">Laura@growlingrabbit.com</a>
+=======
+                        <strong><a href="mailto:Laura@sweetattilas.com">Laura@thegrowlingrabbit.com</a>
+>>>>>>> d83e37d602d5c2373cc4ad1a474ed55826621d65
                     <p>Address:
                         <strong> 5938 N. Broadway </strong>
                             <br>Chicago, IL 60660
@@ -230,6 +254,188 @@
             </div>
         </div>
       </script>
+      <script type="text/ng-template" id="/admin.html"> 
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Admin</h1>
+                        <div class="col-lg-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <i class="fa fa-bell fa-fw"></i> Edit Home Page Image
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="list-group">
+                                      <img class="img-responsive img-full" src="img/plate.jpg" alt="">
+                                  </div>
+                                  <!-- /.list-group -->
+                                  <form id        =  "uploadForm"
+                                   enctype   =  "multipart/form-data"
+                                   action    =  "/api/photo"
+                                   method    =  "post" >
+                                     <input type="file" name="userPhoto" />
+                                     <input type="submit" value="Upload Image" name="submit">
+                                  </form>
+                              <!--     <a href="#" class="btn btn-default btn-block">View All Alerts</a> -->
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                        </div>
+                      <div class="col-lg-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <i class="fa fa-bell fa-fw"></i> Edit Home Page Description
+                              </div>
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                  <div class="list-group">
+                                          <div class="form-group">
+                                            <label>Text area</label>
+<!--                                              <input type="text" id="homePage Edit"
+                                                     enctype   =  "application/x-www-form-urlencoded"
+                                                     action    =  "/api/text"
+                                                     method    =  "post" name="homePage"> -->
+                                             <textarea class="form-control" rows="3">The Growling Rabbit is a neighborhood café committed to using locally sourced ingredients from local farmers to create healthy comfort food. Located in Chicago’s Rogers Park neighborhood, we try to support the “farm to table” philosophy whenever possible and when something delicious is in season, we strive to incorporate it into our wares to allow you, the patrons, to experience the season’s bounty in a unique way.</textarea>
+                                              <input type="submit" value="Edit Home Page" name="submit">
+                                            <!-- <textarea class="form-control" rows="3" height="100%" name="homePage"></textarea> -->
+                                        </div>
+                                  </div>
+                                  <!-- /.list-group -->
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                        </div>
+
+  
+                   
+
+                        <!-- Form to upload an image to the server -->
+                        
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+          
+
+        <!-- Form to add text to the home page -->
+      <!--   <form id        =  "homePage Edit"
+             enctype   =  "application/x-www-form-urlencoded"
+             action    =  "/api/text"
+             method    =  "post"
+        >
+
+        <input type="text" value = "this or that" name="homePage" />
+        <input type="submit" value="Edit Home Page" name="submit">
+        </form> -->
+      </script>
+       <script type="text/ng-template" id="/gallery.html"> 
+       <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Brunch Gallery</h1>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+        </div>
+        </script>
+        <script type="text/ng-template" id="/login.html"> 
+                <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </script>
       <footer>
           <div class="container">
               <div class="row">

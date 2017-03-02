@@ -18,7 +18,24 @@ function($stateProvider, $urlRouterProvider) {
        .state('contact', {
        url: '/contact',
        templateUrl: '/contact.html'
+     })
+
+      .state('admin', {
+       url: '/admin',
+       templateUrl: '/admin.html'
+     })
+
+       .state('gallery', {
+       url: '/gallery',
+       templateUrl: '/gallery.html'
+     })
+
+       .state('login', {
+       url: '/login',
+       templateUrl: '/login.html'
      });
+
+
 
   $urlRouterProvider.otherwise('home');
 }]);
